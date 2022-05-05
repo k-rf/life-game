@@ -1,0 +1,18 @@
+{
+  "version": "0.2",
+  "gitignoreRoot": [".."],
+  "ignorePaths": [".devcontainer", "node_modules"],
+  "words": [
+    "esbuild",
+    "linebreak",
+    "nestjs",
+    "Parens",
+    "prebuild",
+    "Prettierrc",
+    "textlint",
+    "textlintrc",
+    "vite",
+    "vitejs",
+    "vitest"
+  ]
+}
