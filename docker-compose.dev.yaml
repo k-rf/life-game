@@ -71,7 +71,7 @@ services:
         target: ${REMOTE_BACKEND_HOME}/.vscode-server/extensions
 
 networks:
-  template_web_app_network:
+  life_game_network:
     external: true
 
 volumes:

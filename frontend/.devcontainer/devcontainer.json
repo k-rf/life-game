@@ -1,6 +1,6 @@
 {
-  "name": "template_web_app_frontend",
-  "remoteUser": "template_web_app_frontend",
+  "name": "life_game_frontend",
+  "remoteUser": "life_game_frontend",
   "dockerComposeFile": "../../docker-compose.dev.yaml",
   "service": "frontend",
   "postAttachCommand": "yarn install",

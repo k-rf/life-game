@@ -1,6 +1,6 @@
 {
-  "name": "template_web_app",
-  "version": "1.0.1",
+  "name": "life_game",
+  "version": "0.0.0",
   "description": "The web application template.",
   "license": "MIT",
   "private": true,
@@ -9,7 +9,9 @@
   },
   "lint-staged": {
     "*.{json,md}": [
-      "prettier --write",
+      "prettier --write"
+    ],
+    "*.md": [
       "textlint"
     ]
   },

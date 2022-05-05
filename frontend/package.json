@@ -1,6 +1,6 @@
 {
-  "name": "template_web_app_frontend",
-  "version": "1.0.1",
+  "name": "life_game_frontend",
+  "version": "0.0.0",
   "license": "MIT",
   "private": true,
   "scripts": {
