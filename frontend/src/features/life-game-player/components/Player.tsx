@@ -9,7 +9,7 @@ export const Player = () => {
   const field = useSelector((state: RootState) => state.board.field);
 
   return (
-    <Box pb={1} display="flex" justifyContent="center">
+    <Box pb={1} display="flex" justifyContent="center" lineHeight={0}>
       <Board field={field} cellSize={16} />
     </Box>
   );

@@ -10,5 +10,5 @@ export const StartButton = () => {
     dispatch(changeStatus("playing"));
   };
 
-  return <Button onClick={handleStartClick}>Start</Button>;
+  return <Button onClick={handleStartClick}>再生</Button>;
 };

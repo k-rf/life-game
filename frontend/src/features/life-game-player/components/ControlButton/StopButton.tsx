@@ -10,5 +10,5 @@ export const StopButton = () => {
     dispatch(changeStatus("stopping"));
   };
 
-  return <Button onClick={handleStopClick}>Stop</Button>;
+  return <Button onClick={handleStopClick}>停止</Button>;
 };

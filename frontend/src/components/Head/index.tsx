@@ -10,6 +10,9 @@ export const Head = (props: Props) => {
   return (
     <Helmet title={props.title ? `${props.title} | Life Game` : undefined} defaultTitle="Life Game">
       <meta name="description" content={props.description} />
+      <style>
+        @import url(https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap)
+      </style>
       {props.children}
     </Helmet>
   );

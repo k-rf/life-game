@@ -12,4 +12,7 @@ export const theme = createTheme({
       main: "#28DF99",
     },
   },
+  typography: {
+    fontFamily: ["Zen Kaku Gothic Antique", "sans-serif"].join(","),
+  },
 });

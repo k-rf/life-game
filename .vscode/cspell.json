@@ -4,10 +4,12 @@
   "ignorePaths": [".devcontainer", "node_modules"],
   "words": [
     "esbuild",
+    "Kaku",
     "linebreak",
     "nestjs",
     "Parens",
     "prebuild",
+    "preconnect",
     "Prettierrc",
     "reduxjs",
     "textlint",

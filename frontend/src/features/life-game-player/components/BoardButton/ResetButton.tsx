@@ -10,5 +10,5 @@ export const ResetButton = () => {
     dispatch(reset());
   };
 
-  return <Button onClick={handleResetClick}>Reset</Button>;
+  return <Button onClick={handleResetClick}>リセット</Button>;
 };

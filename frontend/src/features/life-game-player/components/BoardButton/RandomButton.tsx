@@ -10,5 +10,5 @@ export const RandomButton = () => {
     dispatch(randomize());
   };
 
-  return <Button onClick={handleRandomClick}>Random</Button>;
+  return <Button onClick={handleRandomClick}>ランダム生成</Button>;
 };
