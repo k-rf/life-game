@@ -1,3 +1,5 @@
+const path = require("path");
+
 /** @type { import("@storybook/core-common").StorybookConfig } */
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
@@ -7,4 +9,12 @@ module.exports = {
     "@storybook/addon-interactions",
   ],
   framework: "@storybook/react",
+  webpackFinal: async (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "~": path.resolve(__dirname, "../src"),
+    };
+
+    return config;
+  },
 };
