@@ -1,20 +1,7 @@
+import { Box } from "@mui/material";
 import React from "react";
 
 import { Cell } from "./Cell";
-
-const arrayEquals = (a: boolean[], b: boolean[]) => {
-  if (a.length !== b.length) {
-    return false;
-  }
-
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] !== b[i]) {
-      return false;
-    }
-  }
-
-  return true;
-};
 
 type Props = {
   cells: boolean[];
@@ -24,15 +11,15 @@ type Props = {
 export const Row = React.memo(
   (props: Props) => {
     return (
-      <>
+      <Box height={props.size}>
         {props.cells.map((cell, i) => (
           <Cell key={i} isActive={cell} size={props.size} />
         ))}
-      </>
+      </Box>
     );
   },
   (prev, next) => {
-    return arrayEquals(prev.cells, next.cells);
+    return JSON.stringify(prev.cells) === JSON.stringify(next.cells);
   }
 );
 

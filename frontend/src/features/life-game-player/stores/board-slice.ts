@@ -67,8 +67,24 @@ export const boardSlice = createSlice({
   initialState,
   reducers: {
     nextGeneration: (state) => {
-      state.field = state.field.map((row, y) =>
-        row.map((_, x) => next({ board: state.field, y, x, h: state.field.length, w: row.length }))
+      const board = Array.from(state.field.map((row) => Array.from(row)));
+
+      state.field.forEach((row, y) =>
+        row.forEach((_, x) => {
+          board[y][x] = next({
+            board: state.field,
+            y,
+            x,
+            h: state.field.length,
+            w: row.length,
+          });
+        })
+      );
+
+      board.forEach((row, y) =>
+        row.forEach((_, x) => {
+          state.field[y][x] = board[y][x];
+        })
       );
     },
     randomize: (state) => {
