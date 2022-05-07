@@ -1,14 +1,17 @@
 import { useDispatch } from "react-redux";
+import { useKey } from "react-use";
 
 import { Button } from "~/components/Elements/Button";
 import { reset } from "~/features/life-game-player/stores/board-slice";
 
-export const ResetButton = () => {
+export const ClearButton = () => {
   const dispatch = useDispatch();
 
-  const handleResetClick = () => {
+  const handleClearClick = () => {
     dispatch(reset());
   };
 
-  return <Button onClick={handleResetClick}>リセット</Button>;
+  useKey("c", handleClearClick);
+
+  return <Button onClick={handleClearClick}>クリア [c]</Button>;
 };

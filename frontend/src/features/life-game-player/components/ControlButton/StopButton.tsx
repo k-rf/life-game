@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { useKey } from "react-use";
 
 import { Button } from "~/components/Elements/Button";
 import { changeStatus } from "~/features/life-game-player/stores/control-slice";
@@ -10,5 +11,7 @@ export const StopButton = () => {
     dispatch(changeStatus("stopping"));
   };
 
-  return <Button onClick={handleStopClick}>停止</Button>;
+  useKey("s", handleStopClick);
+
+  return <Button onClick={handleStopClick}>停止 [s]</Button>;
 };
