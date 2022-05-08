@@ -12,7 +12,7 @@ export const Board = (props: Props) => {
   return (
     <Box>
       {props.field.map((row, y) => (
-        <Row key={y} size={props.cellSize} cells={row} />
+        <Row key={y} size={props.cellSize} cells={row} posY={y} />
       ))}
     </Box>
   );

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { z } from "zod";
 
 import { range } from "~/utils/range";
@@ -67,23 +67,21 @@ export const boardSlice = createSlice({
   initialState,
   reducers: {
     nextGeneration: (state) => {
-      const board = Array.from(state.field.map((row) => Array.from(row)));
-
-      state.field.forEach((row, y) =>
-        row.forEach((_, x) => {
-          board[y][x] = next({
+      const board = state.field.map((row, y) =>
+        row.map((_, x) =>
+          next({
             board: state.field,
             y,
             x,
             h: state.field.length,
             w: row.length,
-          });
-        })
+          })
+        )
       );
 
       board.forEach((row, y) =>
-        row.forEach((_, x) => {
-          state.field[y][x] = board[y][x];
+        row.forEach((cell, x) => {
+          state.field[y][x] = cell;
         })
       );
     },
@@ -95,8 +93,13 @@ export const boardSlice = createSlice({
       state.height = initialState.height;
       state.width = initialState.width;
     },
+    toggleCell: (state, actions: PayloadAction<{ posX: number; posY: number }>) => {
+      const { posX, posY } = actions.payload;
+
+      state.field[posY][posX] = !state.field[posY][posX];
+    },
   },
 });
 
-export const { nextGeneration, randomize, reset } = boardSlice.actions;
+export const { nextGeneration, randomize, reset, toggleCell } = boardSlice.actions;
 export const reducer = boardSlice.reducer;

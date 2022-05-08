@@ -6,6 +6,7 @@ import { Cell } from "./Cell";
 type Props = {
   cells: boolean[];
   size: number;
+  posY: number;
 };
 
 export const Row = React.memo(
@@ -13,7 +14,7 @@ export const Row = React.memo(
     return (
       <Box height={props.size}>
         {props.cells.map((cell, i) => (
-          <Cell key={i} isActive={cell} size={props.size} />
+          <Cell key={i} isActive={cell} size={props.size} posX={i} posY={props.posY} />
         ))}
       </Box>
     );

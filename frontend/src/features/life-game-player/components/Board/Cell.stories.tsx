@@ -8,7 +8,7 @@ type Story = ComponentStoryObj<typeof Cell>;
 export default { title: "Features/LifeGamePlayer/Cell", component: Cell } as Meta;
 
 export const Default: Story = {
-  args: { size: 40 },
+  args: { size: 40, posX: 0, posY: 0 },
 };
 
 export const Active: Story = {

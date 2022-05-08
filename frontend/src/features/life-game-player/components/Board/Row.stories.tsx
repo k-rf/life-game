@@ -11,5 +11,6 @@ export const Default: Story = {
   args: {
     cells: [true, false, true, false],
     size: 40,
+    posY: 0,
   },
 };
