@@ -56,7 +56,7 @@ const next = ({
 };
 
 const initialSize = 50;
-const initialState: BoardState = {
+export const initialState: BoardState = {
   field: [...range(0, initialSize)].map(() => [...range(0, initialSize)].map(() => false)),
   width: initialSize,
   height: initialSize,
@@ -85,8 +85,10 @@ export const boardSlice = createSlice({
         })
       );
     },
-    randomize: (state) => {
-      state.field = state.field.map((row) => row.map(() => (Math.random() < 0.3 ? true : false)));
+    randomize: (state, action: PayloadAction<{ rate: number }>) => {
+      state.field = state.field.map((row) =>
+        row.map(() => (Math.random() < action.payload.rate ? true : false))
+      );
     },
     reset: (state) => {
       state.field = initialState.field;

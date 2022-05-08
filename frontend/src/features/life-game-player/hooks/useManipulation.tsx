@@ -26,7 +26,7 @@ export const useManipulation = (): Manipulation => {
   };
 
   const randomize = () => {
-    dispatch(randomizeAction());
+    dispatch(randomizeAction({ rate: 0.2 }));
   };
 
   const clear = () => {
