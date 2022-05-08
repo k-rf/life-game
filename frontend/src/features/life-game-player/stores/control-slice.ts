@@ -9,7 +9,7 @@ const controlSchema = z.object({
 
 export type controlState = z.infer<typeof controlSchema>;
 
-const initialState: controlState = { status: "stopping" };
+export const initialState: controlState = { status: "stopping" };
 
 export const controlSlice = createSlice({
   name: "control",
