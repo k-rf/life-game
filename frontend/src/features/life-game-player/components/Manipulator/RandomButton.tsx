@@ -10,5 +10,9 @@ export const RandomButton = () => {
     randomize();
   };
 
-  return <Button onClick={handleClick}>ランダム生成 [g]</Button>;
+  return (
+    <Button onClick={handleClick} data-testid="random-button">
+      ランダム生成 [g]
+    </Button>
+  );
 };

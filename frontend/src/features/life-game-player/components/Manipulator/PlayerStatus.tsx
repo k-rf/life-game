@@ -7,11 +7,9 @@ import { LifeGameStatus } from "~/features/life-game-player/types";
 const getStatus = (status: LifeGameStatus) => {
   switch (status) {
     case "playing":
-      return { component: PlayIcon, text: "再生中" };
+      return { component: <PlayIcon data-testid="player-status-playing" />, text: "再生中" };
     case "stopping":
-      return { component: StopIcon, text: "停止中" };
-    default:
-      return { component: React.Fragment, text: "編集中" };
+      return { component: <StopIcon data-testid="player-status-stopping" />, text: "停止中" };
   }
 };
 
@@ -23,9 +21,9 @@ export const PlayerStatus = (props: Props) => {
   const { component: Icon, text } = getStatus(props.status);
 
   return (
-    <Box color={(theme) => theme.palette.primary.main} display="flex">
+    <Box color={(theme) => theme.palette.primary.main} display="flex" data-testid="player-status">
       <Box mr={1} display="flex">
-        <Icon />
+        {Icon}
       </Box>
       <Typography width={(theme) => theme.spacing(8)}>{text}</Typography>
     </Box>

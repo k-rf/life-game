@@ -10,5 +10,9 @@ export const ClearButton = () => {
     clear();
   };
 
-  return <Button onClick={handleClick}>クリア [c]</Button>;
+  return (
+    <Button onClick={handleClick} data-testid="clear-button">
+      クリア [c]
+    </Button>
+  );
 };

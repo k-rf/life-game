@@ -10,5 +10,9 @@ export const PlayButton = () => {
     play();
   };
 
-  return <Button onClick={handleClick}>再生 [p]</Button>;
+  return (
+    <Button onClick={handleClick} data-testid="play-button">
+      再生 [p]
+    </Button>
+  );
 };

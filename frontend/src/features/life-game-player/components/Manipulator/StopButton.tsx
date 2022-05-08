@@ -10,5 +10,9 @@ export const StopButton = () => {
     stop();
   };
 
-  return <Button onClick={handleClick}>停止 [s]</Button>;
+  return (
+    <Button onClick={handleClick} data-testid="stop-button">
+      停止 [s]
+    </Button>
+  );
 };

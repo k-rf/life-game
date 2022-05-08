@@ -7,7 +7,11 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "@storybook/addon-postcss",
   ],
+  features: {
+    interactionsDebugger: true,
+  },
   framework: "@storybook/react",
   webpackFinal: async (config) => {
     config.resolve.alias = {
