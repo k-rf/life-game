@@ -5,7 +5,7 @@ import { Board } from "./Board";
 type Meta = ComponentMeta<typeof Board>;
 type Story = ComponentStoryObj<typeof Board>;
 
-export default { title: "Features/LifeGamePlayer/Board", component: Board } as Meta;
+export default { title: "Features/LifeGamePlayer/Board/Board", component: Board } as Meta;
 
 export const Default: Story = {
   args: {

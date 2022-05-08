@@ -19,7 +19,7 @@ type Props = {
   status: LifeGameStatus;
 };
 
-export const StatusIcon = (props: Props) => {
+export const PlayerStatus = (props: Props) => {
   const { component: Icon, text } = getStatus(props.status);
 
   return (

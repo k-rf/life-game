@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import { useKey } from "react-use";
 
-import { StatusIcon } from "~/features/life-game-player/components/Icon/StatusIcon";
 import { ClearButton } from "~/features/life-game-player/components/Manipulator/ClearButton";
 import { PlayButton } from "~/features/life-game-player/components/Manipulator/PlayButton";
+import { PlayerStatus } from "~/features/life-game-player/components/Manipulator/PlayerStatus";
 import { RandomButton } from "~/features/life-game-player/components/Manipulator/RandomButton";
 import { StopButton } from "~/features/life-game-player/components/Manipulator/StopButton";
 import { useManipulation } from "~/features/life-game-player/hooks/useManipulation";
@@ -34,7 +34,7 @@ export const PlayerManipulator = () => {
         <ClearButton />
       </Box>
       <Box ml="auto" display="flex" alignItems="center">
-        <StatusIcon status={status} />
+        <PlayerStatus status={status} />
       </Box>
     </Box>
   );

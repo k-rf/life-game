@@ -5,7 +5,7 @@ import { Row } from "./Row";
 type Meta = ComponentMeta<typeof Row>;
 type Story = ComponentStoryObj<typeof Row>;
 
-export default { title: "Features/LifeGamePlayer/Row", component: Row } as Meta;
+export default { title: "Features/LifeGamePlayer/Board/Row", component: Row } as Meta;
 
 export const Default: Story = {
   args: {

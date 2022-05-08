@@ -6,7 +6,7 @@ type Meta = ComponentMeta<typeof ManipulationMenu>;
 type Story = ComponentStoryObj<typeof ManipulationMenu>;
 
 export default {
-  title: "Features/LifeGamePlayer/ManipulationMenu",
+  title: "Features/LifeGamePlayer/Manipulator/ManipulationMenu",
   component: ManipulationMenu,
 } as Meta;
 
