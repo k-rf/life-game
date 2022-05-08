@@ -1,15 +1,14 @@
 import { Box, Paper, styled } from "@mui/material";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 
 import { Board } from "~/features/life-game-player/components/Board/Board";
 import { ManipulationMenu } from "~/features/life-game-player/components/Manipulator/ManipulationMenu";
 import { PlayerManipulator } from "~/features/life-game-player/components/Manipulator/PlayerManipulator";
 import { usePlaying } from "~/features/life-game-player/hooks/usePlaying";
-import { RootState } from "~/lib/store";
+import { useSelector } from "~/lib/store";
 
 export const Player = () => {
-  const field = useSelector((state: RootState) => state.board.field);
+  const field = useSelector((state) => state.board.field);
 
   const [contextMenu, setContextMenu] = useState<{ mouseX: number; mouseY: number } | null>(null);
 
