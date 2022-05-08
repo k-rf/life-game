@@ -16,8 +16,9 @@ export default defineConfig({
     setupFiles: "vitest.setup.ts",
     include: ["src/**/*.spec.{ts,tsx}"],
     coverage: {
-      include: ["src"],
-      exclude: ["**/*.spec.{ts,tsx}"],
+      include: ["src/**/*.{ts,tsx}"],
+      exclude: ["**/*.spec.{ts,tsx}", "**/*.d.ts", "**/types", "lib"],
+      all: true,
     },
   },
 });
