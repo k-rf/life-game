@@ -6,7 +6,7 @@ type Meta = ComponentMeta<typeof RandomButton>;
 type Story = ComponentStoryObj<typeof RandomButton>;
 
 export default {
-  title: "Features/LifeGamePlayer/BoardButton/RandomButton",
+  title: "Features/LifeGamePlayer/Manipulator/RandomButton",
   component: RandomButton,
 } as Meta;
 

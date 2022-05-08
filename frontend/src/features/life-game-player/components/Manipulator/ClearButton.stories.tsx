@@ -6,7 +6,7 @@ type Meta = ComponentMeta<typeof ClearButton>;
 type Story = ComponentStoryObj<typeof ClearButton>;
 
 export default {
-  title: "Features/LifeGamePlayer/BoardButton/ClearButton",
+  title: "Features/LifeGamePlayer/Manipulator/ClearButton",
   component: ClearButton,
 } as Meta;
 

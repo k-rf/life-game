@@ -6,7 +6,7 @@ type Meta = ComponentMeta<typeof PlayButton>;
 type Story = ComponentStoryObj<typeof PlayButton>;
 
 export default {
-  title: "Features/LifeGamePlayer/ControlButton/PlayButton",
+  title: "Features/LifeGamePlayer/Manipulator/PlayButton",
   component: PlayButton,
 } as Meta;
 

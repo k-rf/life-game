@@ -6,7 +6,7 @@ type Meta = ComponentMeta<typeof StopButton>;
 type Story = ComponentStoryObj<typeof StopButton>;
 
 export default {
-  title: "Features/LifeGamePlayer/ControlButton/StopButton",
+  title: "Features/LifeGamePlayer/Manipulator/StopButton",
   component: StopButton,
 } as Meta;
 
