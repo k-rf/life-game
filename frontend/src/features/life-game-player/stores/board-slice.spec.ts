@@ -1,4 +1,9 @@
+import { renderHook } from "@testing-library/react-hooks";
+
 import {
+  changeHeight,
+  changeWidth,
+  clear,
   initialState,
   nextGeneration,
   randomize,
@@ -6,6 +11,8 @@ import {
   reset,
   toggleCell,
 } from "~/features/life-game-player/stores/board-slice";
+import { useSelector } from "~/lib/store";
+import { AppProvider } from "~/provider";
 import { combination } from "~/utils/combination";
 
 describe("board-slice", () => {
@@ -148,6 +155,10 @@ describe("board-slice", () => {
 
   describe("reset", () => {
     it("初期状態に戻す", () => {
+      const { result } = renderHook(() => useSelector((state) => state.board), {
+        wrapper: AppProvider,
+      });
+
       const beforeResetCount = reducer(initialState, randomize({ rate: 1 })).field.reduce(
         (p, row) => (p += row.map(Number).reduce((p, c) => (p += c), 0)),
         0
@@ -157,12 +168,72 @@ describe("board-slice", () => {
 
       expect(beforeResetCount).toStrictEqual(total);
 
-      const afterResetCount = reducer(initialState, reset()).field.reduce(
+      const afterResetCount = reducer(result.current, reset()).field.reduce(
         (p, row) => (p += row.map(Number).reduce((p, c) => (p += c), 0)),
         0
       );
 
       expect(afterResetCount).toStrictEqual(0);
+    });
+  });
+
+  describe("clear", () => {
+    it("セルの状態をクリアする", () => {
+      const randomizedState = reducer(initialState, randomize({ rate: 1 }));
+
+      const total = initialState.height * initialState.width;
+
+      expect(
+        randomizedState.field.reduce(
+          (p, row) => (p += row.map(Number).reduce((p, c) => (p += c), 0)),
+          0
+        )
+      ).toStrictEqual(total);
+
+      const clearedState = reducer(randomizedState, clear());
+
+      expect(
+        clearedState.field.reduce(
+          (p, row) => (p += row.map(Number).reduce((p, c) => (p += c), 0)),
+          0
+        )
+      ).toStrictEqual(0);
+    });
+  });
+
+  describe("changeWidth", () => {
+    describe("ボードの幅を変更する", () => {
+      it("正の数のとき、正しく更新される", () => {
+        const result = reducer(initialState, changeWidth(20));
+
+        expect(result.width).toStrictEqual(20);
+        expect(result.field[0].length).toStrictEqual(20);
+      });
+
+      it.each([0, -42])("%s のとき、1 に設定する", (a) => {
+        const result = reducer(initialState, changeWidth(a));
+
+        expect(result.width).toStrictEqual(1);
+        expect(result.field[0].length).toStrictEqual(1);
+      });
+    });
+  });
+
+  describe("changeHeight", () => {
+    describe("ボードの高さを変更する", () => {
+      it("正の数のとき、正しく更新される", () => {
+        const result = reducer(initialState, changeHeight(20));
+
+        expect(result.height).toStrictEqual(20);
+        expect(result.field.length).toStrictEqual(20);
+      });
+
+      it.each([0, -42])("%s のとき、1 に設定する", (a) => {
+        const result = reducer(initialState, changeHeight(a));
+
+        expect(result.height).toStrictEqual(1);
+        expect(result.field.length).toStrictEqual(1);
+      });
     });
   });
 });

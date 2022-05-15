@@ -29,7 +29,12 @@ export const ManipulationMenu = (props: Props) => {
   };
 
   const handleClear = () => {
-    action.clear();
+    action.clearBoard();
+    props.onClose();
+  };
+
+  const handleReset = () => {
+    action.resetBoard();
     props.onClose();
   };
 
@@ -56,6 +61,9 @@ export const ManipulationMenu = (props: Props) => {
       </MenuItem>
       <MenuItem onClick={handleClear}>
         <Typography variant="body2">クリア</Typography>
+      </MenuItem>
+      <MenuItem onClick={handleReset}>
+        <Typography variant="body2">リセット</Typography>
       </MenuItem>
     </Menu>
   );

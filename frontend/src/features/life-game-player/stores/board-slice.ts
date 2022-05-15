@@ -90,6 +90,11 @@ export const boardSlice = createSlice({
         row.map(() => (Math.random() < action.payload.rate ? true : false))
       );
     },
+    clear: (state) => {
+      state.field = [...range(0, state.height)].map(() =>
+        [...range(0, state.width)].map(() => false)
+      );
+    },
     reset: (state) => {
       state.field = initialState.field;
       state.height = initialState.height;
@@ -100,8 +105,37 @@ export const boardSlice = createSlice({
 
       state.field[posY][posX] = !state.field[posY][posX];
     },
+    changeWidth: (state, action: PayloadAction<number>) => {
+      let width = action.payload;
+
+      if (width <= 0) {
+        width = 1;
+      }
+
+      const newBoard = [...range(0, state.height)].map((_, y) =>
+        [...range(0, width)].map((_, x) => state.field[y][x] ?? false)
+      );
+
+      state.width = width;
+      state.field = newBoard;
+    },
+    changeHeight: (state, action: PayloadAction<number>) => {
+      let height = action.payload;
+
+      if (height <= 0) {
+        height = 1;
+      }
+
+      const newBoard = [...range(0, height)].map((_, y) =>
+        [...range(0, state.width)].map((_, x) => (state.field[y] ? state.field[y][x] : false))
+      );
+
+      state.height = height;
+      state.field = newBoard;
+    },
   },
 });
 
-export const { nextGeneration, randomize, reset, toggleCell } = boardSlice.actions;
+export const { changeHeight, changeWidth, clear, nextGeneration, randomize, reset, toggleCell } =
+  boardSlice.actions;
 export const reducer = boardSlice.reducer;

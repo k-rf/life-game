@@ -1,18 +1,18 @@
 import { Button } from "~/components/Elements/Button";
 import { useManipulation } from "~/features/life-game-player/hooks/useManipulation";
 
-export const ClearButton = () => {
+export const ResetButton = () => {
   const {
-    action: { clearBoard },
+    action: { resetBoard },
   } = useManipulation();
 
   const handleClick = () => {
-    clearBoard();
+    resetBoard();
   };
 
   return (
     <Button onClick={handleClick} data-testid="clear-button">
-      クリア [c]
+      リセット [r]
     </Button>
   );
 };
