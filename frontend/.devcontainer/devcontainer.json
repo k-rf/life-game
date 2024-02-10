@@ -6,25 +6,29 @@
   "postAttachCommand": "yarn install",
   "workspaceFolder": "/workspaces/frontend",
   "overrideCommand": true,
-  "extensions": [
-    "dbaeumer.vscode-eslint",
-    "dsznajder.es7-react-js-snippets",
-    "eamodio.gitlens",
-    "esbenp.prettier-vscode",
-    "hbenl.vscode-test-explorer",
-    "irongeek.vscode-env",
-    "kavod-io.vscode-jest-test-adapter",
-    "mhutchie.git-graph",
-    "mutantdino.resourcemonitor",
-    "Perkovec.emoji",
-    "streetsidesoftware.code-spell-checker"
-  ],
-  "settings": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSaveMode": "file",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll": true
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "dsznajder.es7-react-js-snippets",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "hbenl.vscode-test-explorer",
+        "irongeek.vscode-env",
+        "kavod-io.vscode-jest-test-adapter",
+        "mhutchie.git-graph",
+        "mutantdino.resourcemonitor",
+        "Perkovec.emoji",
+        "streetsidesoftware.code-spell-checker"
+      ],
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSaveMode": "file",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": "explicit"
+        }
+      }
     }
   }
 }
